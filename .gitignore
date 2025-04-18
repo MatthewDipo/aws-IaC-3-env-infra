@@ -1,0 +1,49 @@
+# Terraform and Terragrunt
+**/.terraform/*
+**/.terragrunt-cache/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+.terraform.lock.hcl
+.terragrunt-cache
+crash.log
+crash.*.log
+
+# Module-specific ignores
+modules/**/override.tf
+modules/**/override.tf.json
+modules/**/*_override.tf
+modules/**/*_override.tf.json
+
+# Environment-specific ignores
+live/**/*.tfvars
+live/**/*.tfvars.json
+live/**/.terraform
+live/**/.terragrunt-cache
+
+# Kubernetes
+**/kubeconfig
+**/*.kubeconfig
+**/*.pem
+**/*.crt
+**/*.key
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+Desktop.ini
+
+# Local environment files
+.env
+.env.*
+*.log
