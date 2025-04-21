@@ -6,9 +6,19 @@ locals {
   # Automatically load environment-specific variables (like region) from the 'env.hcl' 
   environment_vars = read_terragrunt_config(find_in_parent_folders("live/${local.env}/env.hcl"))
 
+  # Region mapping
+  region_map = {
+    dev     = "eu-west-1"
+    staging = "eu-west-2"
+    prod    = "us-east-1"
+  }
+
   # Extract common variables from the loaded environment configuration for easier access.
   environment = local.environment_vars.locals.environment # e.g., "dev"
-  region      = local.environment_vars.locals.region      # e.g., "eu-west-1"
+  # region      = local.environment_vars.locals.region      # e.g., "eu-west-1"
+  
+  # Get the region based on environment
+  region = local.region_map[local.env]
 }
 
 # Configure the remote backend for storing Terraform state files.
